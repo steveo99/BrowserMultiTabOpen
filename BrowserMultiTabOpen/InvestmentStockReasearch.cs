@@ -18,6 +18,11 @@ namespace BrowserMultiTabOpen
         private void OpenList(string stockSymbol) {
             const int millisecondsTimeout = 1500;
 
+            if (stockSymbol == "") {
+                MessageBox.Show("A stock symbol is required.");
+                return;
+            }
+
             // CNN Money
             var url = string.Format("http://money.cnn.com/quote/quote.html?symb={0}", stockSymbol);
             StartProcess(url);
